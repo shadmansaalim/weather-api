@@ -32,6 +32,7 @@ const displayData = data => {
         container.appendChild(div);
     }
     else {
+        div.classList.add("mt-3", "mt-md-0");
         div.innerHTML = `
         <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" >
         <h1>${data.name}</h1>
