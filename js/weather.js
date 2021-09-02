@@ -6,7 +6,7 @@ const loadTemperature = async () => {
     const userInput = document.getElementById('user-input');
     const userCity = userInput.value;
     userInput.value = '';
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${API_KEY}`;
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${API_KEY}&units=metric`;
     const res = await fetch(url);
     const data = await res.json();
     displayData(data);
@@ -39,7 +39,7 @@ const displayData = data => {
         div.innerHTML = `
         <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="" >
         <h1>${data.name}</h1>
-        <h3><span>${Math.round(data.main.temp - 273.15)}</span>&deg;C</h3>
+        <h3><span>${(data.main.temp)}</span>&deg;C</h3>
         <h1 class="lead">${data.weather[0].main}</h1>
         `
         container.appendChild(div);
