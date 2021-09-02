@@ -1,9 +1,12 @@
+//API KEY
+const API_KEY = '1665b5a80355a7212f84b86c9e37b921';
+
 //Function to fetch data from API according to user input
 const loadTemperature = async () => {
     const userInput = document.getElementById('user-input');
     const userCity = userInput.value;
     userInput.value = '';
-    url = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=1665b5a80355a7212f84b86c9e37b921`
+    url = `https://api.openweathermap.org/data/2.5/weather?q=${userCity}&appid=${API_KEY}`;
     const res = await fetch(url);
     const data = await res.json();
     displayData(data);
